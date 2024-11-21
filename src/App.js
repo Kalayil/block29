@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AllPlayers from './components/AllPlayers';
+import SinglePlayer from './components/SinglePlayer';
+import NewPlayerForm from './components/NewPlayerForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <h1>Welcome to the Puppy Bowl!</h1>
+        <Routes>
+          <Route path="/" element={<AllPlayers />} />
+          <Route path="/players/:id" element={<SinglePlayer />} />
+          <Route path="/new-player" element={<NewPlayerForm />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+
